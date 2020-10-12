@@ -1,35 +1,31 @@
 const root = document.querySelector('.root')
+// import Profile from "./Profile";
+const Profile = () => {
 
-class Profile extends React.Component {
+    const [message, setMessage] = React.useState('')
+    const [profiles, setProfiles] = React.useState([])
 
-    constructor(props) {
-        super(props);
-        this.state = {loaded: false, message: '', profiles: []}
+    const handleClick = () => {
+        if (message === '') {
+            setMessage('Changed!')
+        } else setMessage('')
     }
 
-    handleClick = () => {
-        if (this.state.message === '') {
-            this.setState((state) => ({message: 'Changed!'}))
-        } else this.setState((state) => ({message: ''}))
-    }
-
-    componentDidMount() {
+    React.useEffect(() => {
         fetch('http://localhost:8080/rest/api/v1/test')
             .then(response => response.json())
-            .then(response => this.setState((state) => ({profiles: response})))
-    }
+            .then(response => setProfiles(response))
+    }, [])
 
-    render() {
-        return (
-            <div>
-                <p>{this.state.message === '' ? <p>No message</p> : this.state.message}</p>
-                <button onClick={this.handleClick}>Change</button>
-                <ol>
-                    {this.state.profiles.map(profile => (<li key={profile.id}>{profile.name}</li>))}
-                </ol>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <p>{message === '' ? <p>No message</p> : message}</p>
+            <button onClick={handleClick}>Change</button>
+            <ol>
+                {profiles.map(profile => (<li key={profile.id}>{profile.name}</li>))}
+            </ol>
+        </div>
+    )
 }
 
 const App = () => (
@@ -41,4 +37,4 @@ const App = () => (
     </div>
 )
 
-ReactDOM.render(<App />, root)
+ReactDOM.render(<App/>, root)
