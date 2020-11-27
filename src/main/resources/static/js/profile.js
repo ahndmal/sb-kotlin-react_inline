@@ -18,7 +18,7 @@ const Profile = () => {
 
     return (
         <div>
-            <p>{message === '' ? <p>No message</p> : message}</p>
+            <div>{message === '' ? <p>No message</p> : message}</div>
             <button onClick={handleClick}>Change</button>
             <ol>
                 {profiles.map(profile => (<li key={profile.id}>{profile.name}</li>))}
