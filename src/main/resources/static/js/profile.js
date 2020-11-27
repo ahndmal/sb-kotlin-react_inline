@@ -1,5 +1,4 @@
-const root = document.querySelector('.root')
-// import Profile from "./Profile";
+
 const Profile = () => {
 
     const [message, setMessage] = React.useState('')
@@ -15,7 +14,7 @@ const Profile = () => {
         fetch('http://localhost:8080/rest/api/v1/test')
             .then(response => response.json())
             .then(response => setProfiles(response))
-    }, [])
+    }, [profiles])
 
     return (
         <div>
@@ -28,13 +27,4 @@ const Profile = () => {
     )
 }
 
-const App = () => (
-    <div>
-        <Profile />
-        {/*<Switch>*/}
-        {/*    <Route path='/profile' component={Profile} />*/}
-        {/*</Switch>*/}
-    </div>
-)
-
-ReactDOM.render(<App/>, root)
+// export default Profile;
