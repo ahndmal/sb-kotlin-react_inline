@@ -1,7 +1,9 @@
-// import Profile from './profile.js'
-import Header from "./header.js";
+import Profile from './js/profile.js'
+import Header from "./js/header.js";
+import {name} from './js/data.js'
 
 console.log('Inside INDEX.js');
+console.log(name)
 
 const root = document.querySelector('.root');
 const Link = window.ReactRouterDOM.Link;
@@ -18,9 +20,9 @@ const App = () => (
             <Header />
             <Router>
                 {/*<Link to='/profile' >Profile</Link>*/}
-                {/*<Profile />*/}
+                <Profile />
                 <Switch>
-                    {/*<Route path='/profile' component={Profile} exact={true} />*/}
+                    <Route path='/profile' component={Profile} exact={true} />
                 </Switch>
             </Router>
         </div>

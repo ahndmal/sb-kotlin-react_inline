@@ -1,7 +1,7 @@
 // const Link = window.ReactRouterDOM.Link;
 
 function Header () {
-
+    console.log('Inside Header.js')
     return (
         <div>
             Header
