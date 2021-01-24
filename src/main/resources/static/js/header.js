@@ -8,3 +8,5 @@ function Header () {
             {/*<Link to='/profile' component={Profile} >Profile</Link>*/}
         </div>)
 }
+
+export default Header;

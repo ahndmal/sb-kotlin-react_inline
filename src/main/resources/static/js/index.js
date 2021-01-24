@@ -1,4 +1,7 @@
 // import Profile from './profile.js'
+import Header from "./header.js";
+
+console.log('Inside INDEX.js');
 
 const root = document.querySelector('.root');
 const Link = window.ReactRouterDOM.Link;
@@ -14,10 +17,10 @@ const App = () => (
             <h3>TEST from React main page!</h3>
             <Header />
             <Router>
-                <Link to='/profile' >Profile</Link>
-                <Profile />
+                {/*<Link to='/profile' >Profile</Link>*/}
+                {/*<Profile />*/}
                 <Switch>
-                    <Route path='/profile' component={Profile} exact={true} />
+                    {/*<Route path='/profile' component={Profile} exact={true} />*/}
                 </Switch>
             </Router>
         </div>
